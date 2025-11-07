@@ -1,0 +1,18 @@
+imports:
+- path: thomasgcp-webserver.jinja
+- path: thomasgcp-network.jinja
+
+resources:
+#Create thomasgcp-instance
+- name: thomasgcp-webserver
+  type: thomasgcp-webserver.jinja
+  properties:
+    zone: us-east1-b
+    machineType: f1-micro
+    network: $(ref.thomasgcp-network.selfLink)
+
+#Create thomasgcp-network
+- name: thomasgcp-network
+  type: thomasgcp-network.jinja
+  properties:
+    region: us-east1

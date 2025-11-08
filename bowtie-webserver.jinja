@@ -1,5 +1,5 @@
 resources:
-- name: bowtie-website
+- name: myproject-website
   type: compute.v1.instance
   properties:
     zone: {{ properties["zone"] }}
@@ -19,7 +19,7 @@ resources:
           apt-get install -y apache2
           cat <<EOF> /var/www/html/index.html
           <body style="font-family: sans-serif">
-          <html><body><h1>Aaaand.... Success!</h1>
+          <html><body><h1>greatjob.... Success!</h1>
           <p>My, you look dapper today!</p>
           <p><img src="https://storage.googleapis.com/tony-bowtie-pics/tony-bowtie.svg" alt="Tony Bowtie"></p>
           </body></html>
@@ -27,7 +27,7 @@ resources:
     tags:
       items: ["http-server"]
     networkInterfaces:
-    - network: $(ref.bowtie-network.selfLink)
+    - network: $(ref.myprojct-network.selfLink)
       subnetwork: $(ref.public.selfLink)
       # Access Config required to give the instance a public IP address
       accessConfigs:

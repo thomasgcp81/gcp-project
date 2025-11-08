@@ -1,18 +1,18 @@
 imports:
-- path: thomasgcp-webserver.jinja
-- path: thomasgcp-network.jinja
+- path: myproject-webserver.jinja
+- path: myproject-network.jinja
 
 resources:
-#Create thomasgcp-instance
-- name: thomasgcp-webserver
-  type: thomasgcp-webserver.jinja
+#Create myproject-instance
+- name: myproject-webserver
+  type: myproject-webserver.jinja
   properties:
     zone: us-east1-b
     machineType: f1-micro
-    network: $(ref.thomasgcp-network.selfLink)
+    network: $(ref.myproject-network.selfLink)
 
-#Create thomasgcp-network
-- name: thomasgcp-network
-  type: thomasgcp-network.jinja
+#Create myproject-network
+- name: myproject-network
+  type: myproject-network.jinja
   properties:
     region: us-east1
